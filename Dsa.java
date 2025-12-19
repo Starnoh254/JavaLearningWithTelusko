@@ -1,7 +1,9 @@
 public class Dsa {
     public static void main (String args [] ) {
         int sortedArray[] = {2,4,6,8};
-        int index = binarySearch(8,sortedArray);
+        int start = 0;
+        int end = sortedArray.length - 1;
+        int index = binarySearchRecursion(8,sortedArray, start , end);
         System.out.println("The position of the target in the array is " + index);
 
     }
@@ -36,5 +38,22 @@ public class Dsa {
         }
 
         return -1;
+    }
+
+    private static int binarySearchRecursion(int target , int array[] , int start , int end) {
+        if(start > end ) {
+            return -1;
+        }
+
+        int mid = (start + end) / 2;
+        if(array[mid] == target) {
+            return mid;
+        }
+        else if(array[mid] > target) {
+            return binarySearchRecursion(target, array, start, mid - 1);
+        }
+        else{
+            return binarySearchRecursion(target, array, mid + 1, end);
+        }
     }
 }
