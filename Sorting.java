@@ -6,6 +6,7 @@ public class Sorting {
         bubbleSort(arr);
         selectionSort(arr);
         selectionSortMin(arr);
+        insertionSort(arr);
     }
 
     public static void bubbleSort(int arr[]) {
@@ -61,5 +62,22 @@ public class Sorting {
         }
 
         System.out.println("Here is your sorted array using selectionSortMin: " + Arrays.toString(arr));
+    }
+
+    public static void insertionSort(int arr[]) {
+        // int[] arr = { 4, 8, 2, 1, 3, 7, 5 };
+        for (int i = 0; i < arr.length - 1; i++) {
+            int j = i + 1;
+            int k = i;
+            int temp = arr[j];
+
+            while (k >= 0 && arr[k] > temp) {
+                arr[k + 1] = arr[k];
+                k--;
+            }
+
+            arr[k + 1] = temp;
+        }
+        System.out.println("Here is your sorted array using insertionSort : " + Arrays.toString(arr));
     }
 }
