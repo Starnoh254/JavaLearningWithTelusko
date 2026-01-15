@@ -7,6 +7,7 @@ public class Sorting {
         selectionSort(arr);
         selectionSortMin(arr);
         insertionSort(arr);
+        insertionSortSolution(arr);
     }
 
     public static void bubbleSort(int arr[]) {
@@ -79,5 +80,20 @@ public class Sorting {
             arr[k + 1] = temp;
         }
         System.out.println("Here is your sorted array using insertionSort : " + Arrays.toString(arr));
+    }
+
+    public static void insertionSortSolution(int arr[]) {
+        for (int i = 1; i < arr.length; i++) {
+            int j = i - 1;
+            int key = arr[i];
+
+            while (j >= 0 && arr[j] > key) {
+                arr[j + 1] = arr[j];
+                j--;
+            }
+
+            arr[j + 1] = key;
+        }
+        System.out.println("Here is your sorted array using insertionSortTelusko : " + Arrays.toString(arr));
     }
 }
